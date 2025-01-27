@@ -2,30 +2,7 @@
 
 #Lista de Contatos
 
-Nesta aplicação o usuário pode:
-- Se cadastrar para utilizar a plataforma.
-- Realizar login e logout.
-- Gerenciar sua lista de contatos.
-- Realizar pesquisa de endereços como ajuda ao cadastro de contatos.
-- Excluir a sua própria conta.
-Jornada do usuário
-O usuário acessa a plataforma, realiza seu cadastro e em seguida faz seu login.
-UEX Tecnologia 3
-Assim que estiver dentro do sistema, os dados dos contatos previamente cadastrados são exibidos
-na tela e então o usuário realiza o cadastro de um ou mais contatos utilizando um formulário
-contendo os campos necessários para o cadastro.
-A plataforma possui um sistema de ajuda para o preenchimento do endereço do contato, onde o
-usuário pode informar alguns dados tais como, UF, cidade e um trecho do endereço e esse sistema
-de ajuda apresenta então as possibilidades de endereço baseado na pesquisa, dessa forma o
-usuário escolhe na lista qual o endereço lhe convém e tem os campos do formulário
-correspondente preenchidos automaticamente.
-Quando o usuário quer localizar um contato na lista, ele utiliza um filtro de texto que traz apenas os
-contatos que contém o nome ou CPF equivalente ao termo pesquisado.
-Sempre que o usuário clica no contato da lista, o mapa deve centralizar e marcar com um “pin” a
-coordenada geográfica obtida através do cadastro.
-O usuário pode realizar a exclusão e a edição dos dados dos contatos a qualquer momento.
-Se desejar, o usuário pode remover a sua própria conta, o que faz com que todos os dados
-cadastrados por ele sejam removidos da base de dados.
+Plataforma web para gerenciar contatos, o usuário pode efetuar um cadastro e adicionar; editar e excluir contatos de sua lista. A aplicação possui integração com o google maps para a visualização da localização de cada contato e integração com o Via CEP para ajudar na bucar pelo endereço na hora do cadastro.
 
 ## Pré-requisitos
 
