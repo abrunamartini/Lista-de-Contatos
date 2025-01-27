@@ -1,0 +1,16 @@
+<div class="p-5 col-4">
+  <h2>Esqueceu a senha?</h2>
+
+  <form action="<%= password_path(resource_name) %>" method="post">
+    <div class='py-2'>
+      <md-outlined-text-field label="E-mail" name="user[email]"  id="email" type="text"></md-outlined-text-field>
+    </div>
+
+    <div class="actions">
+      <md-outlined-button type="submit">Recuperar Senha</md-outlined-button>
+    </div>
+  </form>
+
+  <%= render "devise/shared/links" %>
+</div>
+

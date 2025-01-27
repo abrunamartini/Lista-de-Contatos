@@ -1,0 +1,5 @@
+pt-BR:
+  contatcs:
+    messages:
+      success: "Novo contato criado com sucesso!"
+      failure: "Falha ao criar o contato: %{error}"

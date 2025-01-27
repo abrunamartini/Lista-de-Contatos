@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<div class="col-8">
+			<md-list style="max-width: 300px;">
+			<md-list-item>
+				Buscar Endereços
+			</md-list-item>
+			<form action="/address" accept-charset="UTF-8" method="get">
+				<div class='p-2'>
+					<md-outlined-text-field label="Estado" name="address[UF]" id="UF" type="text"></md-outlined-text-field>
+				</div>
+				<div class='p-2'>
+					<md-outlined-text-field label="Cidade" name="address[city]" id="city" type="text"></md-outlined-text-field>
+				</div>
+				<div class='p-2'>
+					<md-outlined-text-field label="Digite parte do endereço" name="address[street]" id="street" type="text"></md-outlined-text-field>
+				</div>
+				<div class='p-2'>
+					<md-outlined-button type="submit">Buscar</md-outlined-button>
+				</div>
+			</form>
+			
+			<md-divider></md-divider>
+
+			<% if @addresses&.blank? %>
+				<md-list-item>
+					Não foi encontrado nenhum endereço!
+				</md-list-item>
+			<% end %>
+
+			<% @addresses.each do |address| %>
+				<md-list-item>
+					<a href=<%= "/contacts/new?cep=#{address["cep"]}" %>>
+						<%= "#{address["logradouro"]}, #{address["bairro"]} - #{address["cep"]}" %>
+					</a>
+				</md-list-item>
+			<% end %>
+		</md-list>
+  </div>
+</div>
+

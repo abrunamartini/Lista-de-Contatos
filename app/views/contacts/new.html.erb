@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <form action="/contacts" accept-charset="UTF-8" method="post">
+      <div class='row'>
+        <div class='col-4'>
+          <div class='py-2'>
+            <md-outlined-text-field label="Nome" name="contact[name]"  id="name" type="text"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="Telefone" name="contact[phone]" id="phone" type="text" prefix-text="+55"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="CPF" name="contact[cpf]"  id="cpf" type="text"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="Aniversário" name="contact[birthday]"  id="birthday" type="date"></md-outlined-text-field>
+          </div>
+        </div>
+        <div class='col-4'>
+          <div class='py-2'>
+            <md-outlined-text-field label="CEP" name="contact[address][zip]"  id="zipCode" type="text" onblur="searchAddress()" value=<%= params[:cep]%>></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="Rua" name="contact[address][street]" id="street" type="text"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="Estado" name="contact[address][UF]" id="UF" type="text"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="Cidade" name="contact[address][city]" id="city" type="text"></md-outlined-text-field>
+          </div>
+        </div>
+        <div class='col-4'>
+          <div class='py-2'>
+            <md-outlined-text-field label="Número" name="contact[address][number]"  id="number" type="number"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="Complemento" name="contact[address][complement]" id="complement" type="text"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <md-outlined-text-field label="País" name="contact[address][country]" id="country" type="text"></md-outlined-text-field>
+          </div>
+          <div class='py-2'>
+            <%= link_to "Buscar Endereço", "#", id: "search-address" %>
+          </div>
+        </div>
+      </div>
+      <div>
+        </br>
+        <md-outlined-button type="submit" id="data-clear">Criar novo Contato</md-outlined-button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  document.getElementById('search-address').addEventListener('click', function(event) {
+    storeFormData();
+
+    window.location.href = '/address';
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const name = sessionStorage.getItem('name');
+    const cpf = sessionStorage.getItem('cpf');
+    const phone = sessionStorage.getItem('phone');
+    const birthday = sessionStorage.getItem('birthday');
+
+    if (name) {
+      document.getElementById('name').value = name;
+    }
+    if (cpf) {
+      document.getElementById('cpf').value = cpf;
+    }
+    if (phone) {
+      document.getElementById('phone').value = phone;
+    }
+    if (birthday) {
+      document.getElementById('birthday').value = birthday;
+    }
+  });
+</script>
+

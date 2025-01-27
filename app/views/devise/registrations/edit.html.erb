@@ -1,0 +1,37 @@
+<div class="p-5 row">
+  <div class="col-6">
+    <h2>Editar Conta</h2>
+
+    <form action="<%= registration_path(resource_name) %>" method="post">
+      <%= render "devise/shared/error_messages", resource: resource %>
+      
+      <div class='py-2'>
+        <md-outlined-text-field label="E-mail" name="user[email]"  id="email" type="text"></md-outlined-text-field>
+      </div>
+      <div class='py-2'>
+        <md-outlined-text-field label="Senha" name="user[password]"  id="password" type="password"></md-outlined-text-field>
+        <% if @minimum_password_length %><em>(A senha deve conter no mínimo <%= @minimum_password_length %> caracteres)</em><% end %><br />
+      </div>
+      <div class='py-2'>
+        <md-outlined-text-field label="Confirmar Senha" name="user[password_confirmation]"  id="password_confirmation" type="password"></md-outlined-text-field>
+      </div>
+      <div class='py-2'>
+        <md-outlined-text-field label="Senha Atual" name="user[current_password]"  id="current_password" type="password"></md-outlined-text-field>
+      </div>
+
+      <div class="actions">
+        <md-outlined-button type="submit">Atualizar Cadastro</md-outlined-button>
+      </div>
+    </form>
+  </div>
+  <div class="col-6">
+    <h3>Excluir conta</h3>
+
+    <%= form_tag(user_registration_path, method: :delete ) do %>
+      <div class='py-2'>
+        <md-outlined-text-field label="Senha" name="password"  id="password" type="password"></md-outlined-text-field>
+      </div>
+      <md-outlined-button type="submit">Excluir Conta</md-outlined-button>
+    <% end %>
+  </div>
+</div>

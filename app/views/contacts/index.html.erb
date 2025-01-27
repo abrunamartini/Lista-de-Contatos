@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <%= link_to 'Criar Contato', new_contact_path, class: "md-outlined-button", style: "text-align: right" %>
+  </div>
+    <div class="row">
+      <div class="col-4">
+      <md-list style="max-width: 300px;">
+      <md-list-item>
+        Contatos
+      </md-list-item>
+      <form action="/contacts" accept-charset="UTF-8" method="get">
+        <div class='p-2'>
+          <md-outlined-text-field label="Digite CPF ou Nome" name="contact[query]" id="query" type="text"></md-outlined-text-field>
+        </div>
+        <div class='p-2'>
+          <md-outlined-button type="submit">Buscar</md-outlined-button>
+        </div>
+      </form>
+      
+      <md-divider></md-divider>
+
+      <% if @contacts.blank? %>
+        <md-list-item>
+          Sua lista de contatos está vazia!
+        </md-list-item>
+      <% end %>
+
+      <% @contacts.each do |contact| %>
+        <md-list-item>
+          <div onclick="updateMarker(<%= contact.address.lat %>, <%= contact.address.lon %>)"> <%= contact.name %> </div>
+          <a href="/contacts/<%=contact.id%>">Editar</a>
+        </md-list-item>
+      <% end %>
+      <%= paginate @contacts %>
+    </md-list>
+    </div>
+    <div class="col-8">
+      <gmp-map
+        id="map"
+        center="-23.550520,-46.633308"
+        zoom="10"
+        map-id="DEMO_MAP_ID"
+        style="height: 400px"
+      >
+        <gmp-advanced-marker
+          id="marker"
+          position="-23.550520,-46.633308"
+          title="Mountain View, CA"
+          ></gmp-advanced-marker>
+      </gmp-map>
+    </div>
+  </div>
+</div>
+
