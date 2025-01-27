@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "5e778fc2-71c4-4fd6-ba09-7400faae1239",
+		"name": "Teste Técnico - Lista de Contatos",
+		"description": "  \nPlataforma web para gerenciar contatos, o usuário pode efetuar um cadastro e adicionar; editar e excluir contatos de sua lista. A aplicação possui integração com o google maps para a visualização da localização de cada contato e integração com o Via CEP para ajudar na bucar pelo endereço na hora do cadastro.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19927734"
+	},
+	"item": [
+		{
+			"name": "Criar Conta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"email\": \"usuario@dominio.com\",\r\n    \"password\": \"senha_secreta\",\r\n    \"password_confirmation\": \"senha_secreta\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "Endpoint para a criação de conta do devise."
+			},
+			"response": []
+		},
+		{
+			"name": "Entrar na aplicação",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "FV8ihGpB0LzMdidR7UOiYhRb7t7RTmiEVfHEetnO0pxROy4Zxqilf33TBJ2mqz7wbwDdtbhLLg-n46ri8i_ICg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"email\": \"usuario@dominio.com\",\r\n    \"password\": \"senha_secreta\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/users/sign_in",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"sign_in"
+					]
+				},
+				"description": "Endpoint para logar na aplicação"
+			},
+			"response": []
+		},
+		{
+			"name": "Deslogar",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization\n",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/users/sign_out",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"sign_out"
+					]
+				},
+				"description": "Endpoint para deslogar da aplicação"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Contatos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts"
+					]
+				},
+				"description": "Endpoint lista todos os contatos, também aceita receber parâmetros para filtrar os contatos de acordo com nome ou CPF"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Contato",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contact\":\r\n        {\r\n            \"name\": \"Bruna Martini Duarte\",\r\n            \"phone\": \"48996716028\",\r\n            \"cpf\": \"10194906914\",\r\n            \"address\": {\r\n                \"UF\": \"SC\",\r\n                \"city\": \"florianopolis\",\r\n                \"street\": \"Avenida Beira Mar\",\r\n                \"number\": 10,\r\n                \"coutry\": \"Brasil\", \r\n                \"zip\": \"88015702\"\r\n            }\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/contacts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"contacts"
+					]
+				},
+				"description": "Endpoint para criar o contato e seu respectivo endereço"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Contato",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contact\":\r\n        {\r\n            \"name\": \"Bruna Martini Duarte\",\r\n            \"phone\": \"48996716028\",\r\n            \"cpf\": \"10194906914\",\r\n            \"address\": {\r\n                \"UF\": \"SC\",\r\n                \"city\": \"florianopolis\",\r\n                \"street\": \"Avenida Beira Mar\",\r\n                \"number\": 10,\r\n                \"coutry\": \"Brasil\", \r\n                \"zip\": \"88015702\"\r\n            }\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/contacts/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"contacts",
+						"1"
+					]
+				},
+				"description": "Endpoint para atualizar o contato e seu respectivo endereço"
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Contato",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/contacts/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"contacts",
+						"1"
+					]
+				},
+				"description": "Endpoint para excluir o contato e seu respectivo endereço"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Endereços",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": {\r\n        \"UF\": \"SC\",\r\n        \"city\": \"florianopolis\",\r\n        \"street\": \"professor joao\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/address",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"address"
+					]
+				},
+				"description": "Endpoint utilizado para buscar endereços de acordo com o parte do nome da Rua"
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Conta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"senha_atual\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"delete"
+					]
+				},
+				"description": "Ednpoint para excluir conta do devise"
+			},
+			"response": []
+		}
+	]
+}

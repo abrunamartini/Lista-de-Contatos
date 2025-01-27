@@ -2,43 +2,43 @@
   <div class="row">
     <form action="/contacts/<%= @contact.id %>" accept-charset="UTF-8" method="post">
       <input name="_method" type="hidden" value="patch">
-      <div class='row'>
-        <div class='col-4'>
-          <div class='py-2'>
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <div class="py-2">
             <md-outlined-text-field label="Nome" name="contact[name]"  id="name" type="text" value="<%= @contact.name %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="Telefone" name="contact[phone]" id="phone" type="text" prefix-text="+55" value="<%= @contact.phone %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="CPF" name="contact[cpf]"  id="cpf" type="text" value="<%= @contact.cpf %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="Aniversário" name="contact[birthday]"  id="birthday" type="date" value="<%= @contact.birthday&.to_date %>"></md-outlined-text-field>
           </div>
         </div>
-        <div class='col-4'>
-          <div class='py-2'>
+        <div class="col-sm-12 col-md-4">
+          <div class="py-2">
             <md-outlined-text-field label="CEP" name="contact[address][zip]"  id="zipCode" type="text" onblur="searchAddress()" value="<%= @contact.address&.zip %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="Rua" name="contact[address][street]" id="street" type="text" value="<%= @contact.address&.street %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="Estado" name="contact[address][UF]" id="UF" type="text" value="<%= @contact.address&.UF %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="Cidade" name="contact[address][city]" id="city" type="text" value="<%= @contact.address&.city %>"></md-outlined-text-field>
           </div>
         </div>
-        <div class='col-4'>
-          <div class='py-2'>
+        <div class="col-sm-12 col-md-4">
+          <div class="py-2">
             <md-outlined-text-field label="Número" name="contact[address][number]"  id="number" type="number" value="<%= @contact.address&.number %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="Complemento" name="contact[address][complement]" id="complement" type="text" value="<%= @contact.address&.complement %>"></md-outlined-text-field>
           </div>
-          <div class='py-2'>
+          <div class="py-2">
             <md-outlined-text-field label="País" name="contact[address][country]" id="country" type="text" value="<%= @contact.address&.country %>"></md-outlined-text-field>
           </div>
         </div>

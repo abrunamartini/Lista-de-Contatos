@@ -56,17 +56,17 @@
     <% end %>
     <div class='row head-bar'>
       <% if user_signed_in? %>
-        <div class="col-8">
+        <div class="col-md-8">
           <%= link_to '/contacts', style: "text-align: left" do %> 
             <md-outlined-button>Início</md-outlined-button> 
           <% end %>
         </div>
-        <div class="col-2">
+        <div class="col-sm-6 col-md-2">
           <%= link_to '/users/edit', style: "text-align: right" do %>
             <md-outlined-button>Editar Conta</md-outlined-button>
           <% end %>
         </div>
-        <div class="col-2">
+        <div class="col-sm-6 col-md-2">
           <%= form_tag(destroy_user_session_path, method: :delete, style: "text-align: left") do %>
             <md-outlined-button type="submit">Logout</md-outlined-button>
           <% end %>

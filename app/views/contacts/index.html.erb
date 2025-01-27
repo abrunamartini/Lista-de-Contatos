@@ -3,7 +3,7 @@
     <%= link_to 'Criar Contato', new_contact_path, class: "md-outlined-button", style: "text-align: right" %>
   </div>
     <div class="row">
-      <div class="col-4">
+      <div class="col-sm-12 col-md-4">
       <md-list style="max-width: 300px;">
       <md-list-item>
         Contatos
@@ -34,7 +34,7 @@
       <%= paginate @contacts %>
     </md-list>
     </div>
-    <div class="col-8">
+    <div class="col-sm-12 col-md-8">
       <gmp-map
         id="map"
         center="-23.550520,-46.633308"
