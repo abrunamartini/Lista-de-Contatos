@@ -37,3 +37,6 @@ Antes de rodar o projeto, certifique-se de que você tenha as seguintes ferramen
   bundle exec rspec
 ```
 
+Para acessar a documentação:
+[download da coollection no postman](https://github.com/abrunamartini/Lista-de-Contatos/blob/master/docs/Teste%20T%C3%A9cnico%20-%20Lista%20de%20Contatos.postman_collection.json)
+
