@@ -2,7 +2,7 @@ class AddContactService
   class ContactCreationError < StandardError; end
 
   def initialize(params)
-    @contact_params = params.except("address")
+    @contact_params = params.except(:address)
     @address_params = params[:address]
   end
 

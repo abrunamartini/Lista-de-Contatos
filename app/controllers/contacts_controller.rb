@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @contacts = 
+    @contacts =
       if params[:query].present?
         current_user.contacts.includes(:address).search_contact(params[:query]).order(:name)
       else
