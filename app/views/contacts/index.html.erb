@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <%= link_to 'Criar Contato', new_contact_path, class: "md-outlined-button", style: "text-align: right" %>
+    <%= link_to '/contacts/new', style: "text-align: right", class: "mb-2" do %>
+      <md-outlined-button>Criar Contato</md-outlined-button>
+    <% end %>
   </div>
     <div class="row">
       <div class="col-sm-12 col-md-4">
@@ -10,7 +12,7 @@
       </md-list-item>
       <form action="/contacts" accept-charset="UTF-8" method="get">
         <div class='p-2'>
-          <md-outlined-text-field label="Digite CPF ou Nome" name="contact[query]" id="query" type="text"></md-outlined-text-field>
+          <md-outlined-text-field label="Digite CPF ou Nome" name="query" id="query" type="text" value="<%= params[:query] %>"></md-outlined-text-field>
         </div>
         <div class='p-2'>
           <md-outlined-button type="submit">Buscar</md-outlined-button>
@@ -45,7 +47,6 @@
         <gmp-advanced-marker
           id="marker"
           position="-23.550520,-46.633308"
-          title="Mountain View, CA"
           ></gmp-advanced-marker>
       </gmp-map>
     </div>
