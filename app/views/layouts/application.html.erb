@@ -40,7 +40,7 @@
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM3lLl3nY6DSoMXif1eltw7-GN_knFldo&loading=async&libraries=maps&v=beta&libraries=marker" defer>
+      src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google, :key) %>&loading=async&libraries=maps&v=beta&libraries=marker" defer>
     </script>
 
     <% if flash[:alert] %>
